@@ -4,6 +4,7 @@ on:
     branches: [ '2026.x' ]
   pull_request_target:
     branches: [ '2026.x' ]
+  workflow_dispatch:
 
 permissions:
   contents: read
