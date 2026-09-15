@@ -17,6 +17,11 @@
         <directory name="src/DataDefinitionsBundle" />
         <ignoreFiles>
             <directory name="vendor" />
+            <!-- Optional CoreShop integrations: only loaded when the CoreShop components are installed -->
+            <directory name="src/DataDefinitionsBundle/Interpreter/CoreShop" />
+            <directory name="src/DataDefinitionsBundle/Setter/CoreShop" />
+            <directory name="src/DataDefinitionsBundle/Form/Type/Interpreter/CoreShop" />
+            <directory name="src/DataDefinitionsBundle/Form/Type/Setter/CoreShop" />
         </ignoreFiles>
     </projectFiles>
 
@@ -28,6 +33,11 @@
             </errorLevel>
         </UndefinedConstant>
         <UndefinedMagicMethod errorLevel="info" />
+        <!-- The code base predates PHP 8.3 #[\Override]; report only -->
+        <MissingOverrideAttribute errorLevel="info" />
+        <ParamNameMismatch errorLevel="info" />
+        <MissingTemplateParam errorLevel="info" />
+        <NoValue errorLevel="info" />
         <UndefinedDocblockClass errorLevel="info" />
         <DeprecatedClass errorLevel="info" />
         <DeprecatedMethod errorLevel="info" />
