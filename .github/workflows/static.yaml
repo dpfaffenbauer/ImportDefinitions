@@ -32,8 +32,7 @@ jobs:
       # registration from env_local to .env.local when the Pimcore steps are enabled.
       phpstan: true
       psalm: true
-      # Deviation from the template: the bundle root is src/DataDefinitionsBundle, not src/.
-      lint-yaml-paths: 'config src/DataDefinitionsBundle/Resources/config'
+      lint-yaml-paths: 'config src/Resources/config'
     secrets:
       composer_auth: ${{ secrets.COMPOSER_AUTH }}
       # Pimcore refuses to boot without a registered instance; php-test writes this to .env.local.
