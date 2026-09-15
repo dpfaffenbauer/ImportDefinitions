@@ -126,6 +126,9 @@ use PhpCsFixer\Fixer\Whitespace\NoWhitespaceInBlankLineFixer;
 use PhpCsFixer\Fixer\Whitespace\SingleBlankLineAtEofFixer;
 use Symplify\EasyCodingStandard\Config\ECSConfig;
 
+// Standalone rule set. The other CORS bundles import vendor/cors/dev/ecs.php, but cors/dev is a
+// private package and this repository is public: its CI (and external contributors) have no
+// access to the private Packagist, so the shared base cannot be a dependency here.
 return static function (ECSConfig $ecsConfig): void {
     $ecsConfig->rules([
         BinaryOperatorSpacesFixer::class,
