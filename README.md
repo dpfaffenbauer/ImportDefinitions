@@ -60,7 +60,7 @@ in `.env`; the Pimcore bundles are registered in `config/bundles.php`, the bundl
 development in `Kernel.php`.
 
 Pimcore 2026 refuses to boot without a registered instance: the instance identifier
-(`pimcore-data-definitions`) is committed in `.env`, and `PIMCORE_ENCRYPTION_SECRET` plus
+(`cors-pimcore-data-definitions`) is committed in `.env`, and `PIMCORE_ENCRYPTION_SECRET` plus
 `PIMCORE_PRODUCT_KEY` go into your uncommitted `.env.local`. Register the identifier at
 [license.pimcore.com](https://license.pimcore.com) to obtain them; CI reads the same three
 values from the repository secrets `PIMCORE_ENCRYPTION_SECRET`, `PIMCORE_INSTANCE_IDENTIFIER`
