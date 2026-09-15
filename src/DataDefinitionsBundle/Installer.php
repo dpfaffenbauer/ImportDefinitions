@@ -26,7 +26,7 @@ final class Installer extends SettingsStoreAwareInstaller
         $application = new Pimcore\Console\Application($kernel);
         $application->setAutoExit(false);
         $options = ['command' => 'coreshop:resources:install'];
-        $options = array_merge($options, ['--no-interaction' => true, '--application-name data_definitions']);
+        $options = array_merge($options, ['--no-interaction' => true, '--application-name' => 'data_definitions']);
         $application->run(new ArrayInput($options));
 
         parent::install();

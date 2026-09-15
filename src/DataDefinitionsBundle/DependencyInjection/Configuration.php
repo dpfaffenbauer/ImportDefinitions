@@ -49,6 +49,27 @@ final class Configuration implements ConfigurationInterface
             ->end()
         ;
 
+        // SQL files executed by coreshop:resources:install (bin/console pimcore:bundle:install DataDefinitionsBundle).
+        // The classic-admin js/css resources are gone with Pimcore 2026, the schema install stays.
+        $rootNode
+            ->children()
+                ->arrayNode('pimcore_admin')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->arrayNode('install')
+                            ->addDefaultsIfNotSet()
+                            ->children()
+                                ->arrayNode('sql')
+                                    ->prototype('scalar')->end()
+                                    ->defaultValue(['@DataDefinitionsBundle/Resources/install/pimcore/sql/data.sql'])
+                                ->end()
+                            ->end()
+                        ->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
+
         $rootNode
             ->children()
                 ->arrayNode('import_definitions')

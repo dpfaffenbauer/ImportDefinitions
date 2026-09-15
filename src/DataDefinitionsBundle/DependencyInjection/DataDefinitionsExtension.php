@@ -55,6 +55,7 @@ final class DataDefinitionsExtension extends AbstractModelExtension implements P
         $config = $this->processConfiguration($configuration, $configs);
 
         $this->registerResources('data_definitions', $config['driver'], $config['resources'], $container);
+        $this->registerPimcoreResources('data_definitions', $config['pimcore_admin'], $container);
 
         $bundles = $container->getParameter('kernel.bundles');
 
