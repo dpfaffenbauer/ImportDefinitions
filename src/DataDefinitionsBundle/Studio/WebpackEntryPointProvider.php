@@ -3,7 +3,8 @@
 declare(strict_types=1);
 
 /*
- * This source file is available under the Data Definitions Commercial License (DDCL).
+ * This source file is available under two different licenses:
+ *  - Data Definitions Commercial License (DDCL)
  * Full copyright and license information is available in
  * LICENSE.md which is distributed with this source code.
  *

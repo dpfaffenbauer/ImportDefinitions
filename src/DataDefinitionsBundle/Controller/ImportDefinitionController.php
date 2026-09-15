@@ -229,7 +229,7 @@ final class ImportDefinitionController extends AbstractDefinitionController
 
             if ($uploadedFile instanceof UploadedFile) {
                 $jsonContent = file_get_contents($uploadedFile->getPathname());
-                $data = $this->decodeJson($jsonContent, false, [], false);
+                $data = json_decode((string) $jsonContent, true, 512, \JSON_THROW_ON_ERROR);
 
                 $form = $this->resourceFormFactory->create($this->metadata, $definition);
                 $handledForm = $form->submit($data);

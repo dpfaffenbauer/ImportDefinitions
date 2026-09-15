@@ -189,5 +189,4 @@ final class Configuration implements ConfigurationInterface
             ->end()
         ;
     }
-
 }

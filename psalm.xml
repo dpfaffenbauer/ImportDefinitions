@@ -17,10 +17,6 @@
         <directory name="src/DataDefinitionsBundle" />
         <ignoreFiles>
             <directory name="vendor" />
-            <!-- Optional integrations: only loaded when the third-party package is installed -->
-            <directory name="src/DataDefinitionsBundle/CoreShop" />
-            <!-- Doctrine migrations are generated code -->
-            <directory name="src/DataDefinitionsBundle/Migrations" />
         </ignoreFiles>
     </projectFiles>
 
