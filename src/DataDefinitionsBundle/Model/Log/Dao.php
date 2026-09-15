@@ -29,7 +29,7 @@ class Dao extends AbstractDao
     /**
      * Get log by id
      *
-     * @param null $id
+     * @param int|string|null $id
      *
      * @throws Exception
      */

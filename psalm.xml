@@ -27,5 +27,13 @@
         <UndefinedDocblockClass errorLevel="info" />
         <MethodSignatureMismatch errorLevel="info" />
         <InvalidCatch errorLevel="info" />
+        <!-- The coreshop/test-setup base only lists specific deprecated/internal symbols; the legacy code base
+             still uses Request::get(), league/csv factories and Pimcore internals, so report them only -->
+        <DeprecatedClass errorLevel="info" />
+        <DeprecatedMethod errorLevel="info" />
+        <DeprecatedInterface errorLevel="info" />
+        <DeprecatedTrait errorLevel="info" />
+        <InternalMethod errorLevel="info" />
+        <InternalClass errorLevel="info" />
     </issueHandlers>
 </psalm>

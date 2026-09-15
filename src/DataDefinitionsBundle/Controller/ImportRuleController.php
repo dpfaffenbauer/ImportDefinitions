@@ -57,7 +57,10 @@ final class ImportRuleController extends AbstractController
         $raw = [];
         $rules = [];
 
-        foreach ($rowIterator as $row) {
+        foreach ($rowIterator as $rowEntity) {
+            // OpenSpout 4 yields Row objects, not arrays
+            $row = $rowEntity->toArray();
+
             if (null === $headers) {
                 $headers = $row;
                 $headersCount = count($headers);
