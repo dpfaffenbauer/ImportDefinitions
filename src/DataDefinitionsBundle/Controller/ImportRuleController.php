@@ -62,7 +62,8 @@ final class ImportRuleController extends AbstractController
             $row = $rowEntity->toArray();
 
             if (null === $headers) {
-                $headers = $row;
+                // header cells are used as array keys
+                $headers = array_map(static fn (mixed $value): string => is_scalar($value) ? (string) $value : '', $row);
                 $headersCount = count($headers);
 
                 continue;
