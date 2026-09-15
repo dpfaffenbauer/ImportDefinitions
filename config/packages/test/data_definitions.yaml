@@ -3,6 +3,11 @@
 imports:
     - { resource: '../../../tests/DataDefinitionsBundle/Behat/Resources/config/services.yml' }
 
+parameters:
+    # The synced test/config.yaml pins pimcore.encryption.secret to a dummy key; Pimcore validates the
+    # product key against this parameter, so the registered secret must win (files load alphabetically).
+    pimcore.encryption.secret: '%env(PIMCORE_ENCRYPTION_SECRET)%'
+
 services:
     Symfony\Component\HttpFoundation\Session\Storage\Handler\NullSessionHandler: ~
 
