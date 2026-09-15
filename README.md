@@ -67,8 +67,9 @@ values from the repository secrets `PIMCORE_ENCRYPTION_SECRET`, `PIMCORE_INSTANC
 and `PIMCORE_PRODUCT_KEY` (`.github/workflows/static.yaml` writes them to `.env.local` through the
 shared `php-test` workflow, `.github/workflows/behat.yml` passes them as environment variables).
 
-Static checks run the same way as in CI (`ecs.php`, `phpstan.neon` and `psalm.xml` are
-self-contained, because the shared `cors/dev` package is not available to a public repository):
+Static checks run the same way as in CI (`ecs.php`, `phpstan.neon` and `psalm.xml` import the
+public `coreshop/test-setup` rule set, because the shared `cors/dev` package is not available to a
+public repository):
 
 ```bash
 vendor/bin/ecs check src

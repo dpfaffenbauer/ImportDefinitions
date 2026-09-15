@@ -1,18 +1,11 @@
 <?xml version="1.0"?>
-<!--
-    Standalone Psalm configuration. The other CORS bundles include vendor/cors/dev/psalm.xml, but
-    cors/dev is a private package: this repository is public and its CI has no access to the
-    private Packagist, so the shared base cannot be a dependency here.
--->
-<psalm
-    errorLevel="7"
-    resolveFromConfigFile="true"
-    findUnusedCode="false"
-    findUnusedBaselineEntry="false"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns="https://getpsalm.org/schema/config"
-    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
->
+<!-- Public repository: cors/dev (private Packagist) is not reachable from GitHub Actions here,
+     so the shared issue handlers come from the public coreshop/test-setup package. -->
+<psalm xmlns:xi="http://www.w3.org/2001/XInclude" errorLevel="7">
+    <xi:include
+            href="vendor/coreshop/test-setup/psalm.xml"
+            xpointer="xpointer(/psalm/*[not(self::projectFiles)])"
+    />
     <projectFiles>
         <directory name="src/DataDefinitionsBundle" />
         <ignoreFiles>
@@ -24,27 +17,14 @@
             <directory name="src/DataDefinitionsBundle/Form/Type/Setter/CoreShop" />
         </ignoreFiles>
     </projectFiles>
-
     <issueHandlers>
-        <UndefinedConstant>
-            <errorLevel type="suppress">
-                <!-- PIMCORE_* constants are defined at runtime by Pimcore\Bootstrap -->
-                <directory name="src/DataDefinitionsBundle" />
-            </errorLevel>
-        </UndefinedConstant>
-        <UndefinedMagicMethod errorLevel="info" />
         <!-- The code base predates PHP 8.3 #[\Override]; report only -->
         <MissingOverrideAttribute errorLevel="info" />
         <ParamNameMismatch errorLevel="info" />
         <MissingTemplateParam errorLevel="info" />
         <NoValue errorLevel="info" />
+        <UndefinedMagicMethod errorLevel="info" />
         <UndefinedDocblockClass errorLevel="info" />
-        <DeprecatedClass errorLevel="info" />
-        <DeprecatedMethod errorLevel="info" />
-        <DeprecatedInterface errorLevel="info" />
-        <DeprecatedTrait errorLevel="info" />
-        <InternalMethod errorLevel="info" />
-        <InternalClass errorLevel="info" />
         <MethodSignatureMismatch errorLevel="info" />
         <InvalidCatch errorLevel="info" />
     </issueHandlers>
