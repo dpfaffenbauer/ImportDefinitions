@@ -56,7 +56,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Instride\\Bundle\\DataDefinitionsBundle\\": "src/DataDefinitionsBundle"
+            "Instride\\Bundle\\DataDefinitionsBundle\\": "src"
         }
     },
     "autoload-dev": {
